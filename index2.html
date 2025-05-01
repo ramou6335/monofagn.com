@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MONOFA - Solutions Technologiques pour entreprises. Développement Web, Applications Mobiles, Design, IA et Cybersécurité.">
+    <title>MONOFA - Solutions Technologiques</title>
+    <link rel="icon" href="Logo.png">
+    <style>
+        /* CSS Reset and Base Styles */
+        :root {
+            --primary-color: #10367D;
+            --secondary-color: #74B4D4;
+            --accent-color: #FC9603;
+            --light-blue: #D6E8F4;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Loading Animation */
+        .loader-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(16, 54, 125, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Header & Navigation */
+        .header {
+            background-color: #ffffff;
+            box-shadow: var(--header-shadow);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 70px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-btn {
+            background: none;
+            border: none;
+            color: #555;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all var(--transition-speed) ease;
+        }
+        
+        .nav-btn:hover, .nav-btn:focus {
+            background-color: var(--light-blue);
+            color: var(--primary-color);
+            outline: none;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 10;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+        
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+        }
+        
+        .btn:hover, .btn:focus {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            outline: none;
+        }
+        
+        /* Animated Background */
+        .curves-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .curve {
+            position: absolute;
+            width: 120%;
+            height: 100px;
+            left: -10%;
+            background: transparent;
+            border: 4px solid;
+            border-radius: 50%;
+        }
+        
+        .curve-1 {
+            top: 30%;
+            border-color: rgba(16, 54, 125, 0.2);
+            height: 400px;
+            animation: float 15s ease-in-out infinite;
+        }
+        
+        .curve-2 {
+            top: 40%;
+            border-color: rgba(16, 54, 125, 0.15);
+            height: 300px;
+            animation: float 12s ease-in-out infinite reverse;
+        }
+        
+        .curve-3 {
+            top: 50%;
+            border-color: rgba(116, 180, 212, 0.15);
+            height: 200px;
+            animation: float 18s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(1deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+        
+        /* Section containers */
+        .section {
+            padding: 6rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            flex: 1 1 300px;
+            max-width: 350px;
+            transition: all var(--transition-speed) ease;
+            opacity: 0.8;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--accent-color);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+            transform-origin: bottom;
+        }
+        
+        .card:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--light-blue);
+            color: var(--primary-color);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover .card-icon {
+            background-color: var(--accent-color);
+            color: white;
+            transform: rotate(5deg) scale(1.1);
+        }
+        
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .card p {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        /* Filiales Section */
+        .filiales-section {
+            background-color: var(--light-blue);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .filiale-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            flex: 1 1 350px;
+            max-width: 400px;
+            transition: all var(--transition-speed) ease;
+            opacity: 0.8;
+            transform: translateY(20px);
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .filiale-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+            opacity: 1;
+            border-top: 4px solid var(--accent-color);
+        }
+        
+        .filiale-logo {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .filiale-card:hover .filiale-logo {
+            transform: rotate(360deg);
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Experts Section */
+        .expert-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            flex: 1 1 250px;
+            max-width: 300px;
+            text-align: center;
+            transition: all var(--transition-speed) ease;
+        }
+        
+        .expert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .expert-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--light-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .expert-card:hover .expert-photo {
+            border-color: var(--accent-color);
+            transform: scale(1.05);
+        }
+        
+        .expert-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .expert-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .expert-info p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: var(--light-blue);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(252, 150, 3, 0.05) 0%, rgba(116, 180, 212, 0.05) 100%);
+            pointer-events: none;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .footer h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+        
+        .footer-btn {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-btn:hover, .footer-btn:focus {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .highlight {
+            color: var(--secondary-color);
+        }
+        
+        .accent-highlight {
+            color: var(--secondary-color);
+        }
+        
+        .monofa-highlight {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        /* Technologies Section */
+        .tech-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .tech-icon {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-icon:hover {
+            transform: translateY(-5px) rotate(5deg);
+            background-color: var(--light-blue);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Page Transitions */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 0.8rem;
+            }
+            
+            .nav-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .footer-btn {
+                margin-bottom: 1rem;
+                display: inline-block;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-content {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader-container" id="loader">
+        <div class="loader" aria-label="Chargement en cours"></div>
+    </div>
+
+    <!-- Header avec navigation -->
+    <header class="header">
+        <div class="logo">
+            <img src="Logo.png" alt="MONOFA Logo" aria-label="Logo MONOFA">
+        </div>
+        <nav class="nav-links" aria-label="Navigation principale">
+            <button class="nav-btn" data-page="home" aria-label="Aller à l'accueil">Accueil</button>
+            <button class="nav-btn" data-page="services" aria-label="Découvrir nos services">Services</button>
+            <button class="nav-btn" data-page="formations" aria-label="Voir nos formations">Formations</button>
+            <button class="nav-btn" data-page="design" aria-label="Voir nos services de design">Design</button>
+            <button class="nav-btn" data-page="filiales" aria-label="Nos filiales">Filiales</button>
+            <button class="nav-btn" data-page="experts" aria-label="Nos experts">Experts</button>
+            <button class="nav-btn" aria-label="Consulter la FAQ">Contact-FAQ</button>
+        </nav>
+    </header>
+
+    <!-- Page d'accueil -->
+    <main id="home" class="page active">
+        <section class="hero">
+            <div class="curves-container" aria-hidden="true">
+                <div class="curve curve-1"></div>
+                <div class="curve curve-2"></div>
+                <div class="curve curve-3"></div>
+            </div>
+            <div class="hero-content">
+                <h1><span class="monofa-highlight">Monofa</span> - <span class="accent-highlight">Innovation</span> <span class="highlight">Technologique</span></h1>
+                <p>Nous concevons des solutions sur mesure pour propulser votre entreprise vers l'avenir. Expertise, innovation et excellence sont au cœur de notre approche.</p>
+                <button class="btn" aria-label="En savoir plus sur nos services">Découvrir nos services</button>
+            </div>
+        </section>
+
+      <!-- Technologies Section -->
+<section class="section">
+    <h2 class="section-title">Nos Technologies</h2>
+    <p style="text-align: center; max-width: 800px; margin-bottom: 3rem;">
+        Nous maîtrisons l'écosystème technologique le plus complet pour développer des solutions sur-mesure, performantes et évolutives.
+    </p>
+    
+    <div class="tech-categories">
+        <!-- Développement Mobile -->
+        <div class="tech-group">
+            <h3 class="tech-group-title">Mobile</h3>
+            <div class="tech-container">
+                <div class="tech-icon" title="React Native">
+                    <img src="https://cdn.worldvectorlogo.com/logos/react-native-1.svg" alt="React Native">
+                </div>
+                <div class="tech-icon" title="Flutter">
+                    <img src="https://cdn.worldvectorlogo.com/logos/flutter-logo.svg" alt="Flutter">
+                </div>
+                <div class="tech-icon" title="Kotlin">
+                    <img src="https://cdn.worldvectorlogo.com/logos/kotlin-1.svg" alt="Kotlin">
+                </div>
+                <div class="tech-icon" title="Swift">
+                    <img src="https://cdn.worldvectorlogo.com/logos/swift-15.svg" alt="Swift">
+                </div>
+            </div>
+        </div>
+
+        <!-- Frontend -->
+        <div class="tech-group">
+            <h3 class="tech-group-title">Frontend</h3>
+            <div class="tech-container">
+                <div class="tech-icon" title="React">
+                    <img src="https://cdn.worldvectorlogo.com/logos/react-2.svg" alt="React">
+                </div>
+                <div class="tech-icon" title="Vue.js">
+                    <img src="https://cdn.worldvectorlogo.com/logos/vue-9.svg" alt="Vue.js">
+                </div>
+                <div class="tech-icon" title="Angular">
+                    <img src="https://cdn.worldvectorlogo.com/logos/angular-icon-1.svg" alt="Angular">
+                </div>
+                <div class="tech-icon" title="Svelte">
+                    <img src="https://cdn.worldvectorlogo.com/logos/svelte-1.svg" alt="Svelte">
+                </div>
+                <div class="tech-icon" title="TypeScript">
+                    <img src="https://cdn.worldvectorlogo.com/logos/typescript.svg" alt="TypeScript">
+                </div>
+            </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="tech-group">
+            <h3 class="tech-group-title">Backend</h3>
+            <div class="tech-container">
+                <div class="tech-icon" title="Node.js">
+                    <img src="https://cdn.worldvectorlogo.com/logos/nodejs-1.svg" alt="Node.js">
+                </div>
+                <div class="tech-icon" title="Python">
+                    <img src="https://cdn.worldvectorlogo.com/logos/python-5.svg" alt="Python">
+                </div>
+                <div class="tech-icon" title="Django">
+                    <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="Django">
+                </div>
+                <div class="tech-icon" title="Spring">
+                    <img src="https://cdn.worldvectorlogo.com/logos/spring-3.svg" alt="Spring">
+                </div>
+                <div class="tech-icon" title="Go">
+                    <img src="https://cdn.worldvectorlogo.com/logos/gopher.svg" alt="Go">
+                </div>
+                <div class="tech-icon" title="Rust">
+                    <img src="https://cdn.worldvectorlogo.com/logos/rust.svg" alt="Rust">
+                </div>
+            </div>
+        </div>
+
+        <!-- Cloud & DevOps -->
+        <div class="tech-group">
+            <h3 class="tech-group-title">Cloud & DevOps</h3>
+            <div class="tech-container">
+                <div class="tech-icon" title="AWS">
+                    <img src="https://cdn.worldvectorlogo.com/logos/aws-2.svg" alt="AWS">
+                </div>
+                <div class="tech-icon" title="Docker">
+                    <img src="https://cdn.worldvectorlogo.com/logos/docker.svg" alt="Docker">
+                </div>
+                <div class="tech-icon" title="Kubernetes">
+                    <img src="https://cdn.worldvectorlogo.com/logos/kubernets.svg" alt="Kubernetes">
+                </div>
+                <div class="tech-icon" title="Terraform">
+                    <img src="https://cdn.worldvectorlogo.com/logos/terraform-enterprise.svg" alt="Terraform">
+                </div>
+            </div>
+        </div>
+
+        <!-- Bases de données -->
+        <div class="tech-group">
+            <h3 class="tech-group-title">Bases de données</h3>
+            <div class="tech-container">
+                <div class="tech-icon" title="PostgreSQL">
+                    <img src="https://cdn.worldvectorlogo.com/logos/postgresql.svg" alt="PostgreSQL">
+                </div>
+                <div class="tech-icon" title="MongoDB">
+                    <img src="https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" alt="MongoDB">
+                </div>
+                <div class="tech-icon" title="Redis">
+                    <img src="https://cdn.worldvectorlogo.com/logos/redis.svg" alt="Redis">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .tech-categories {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .tech-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .tech-group-title {
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #444;
+        font-size: 1.2rem;
+    }
+    
+    .tech-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    
+    .tech-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        padding: 10px;
+        border-radius: 12px;
+        background: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    
+    .tech-icon:hover {
+        transform: translateY(-5px);
+    }
+    
+    .tech-icon img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+    }
+</style>
+    </main>
+
+    <!-- Page Services -->
+    <section id="services" class="page section">
+        <h2 class="section-title">Nos Services</h2>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">💻</div>
+                <h3>Développement Web</h3>
+                <p>Sites vitrines, plateformes e-commerce et applications web sur mesure pour votre entreprise avec les dernières technologies.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">📱</div>
+                <h3>Applications Mobiles</h3>
+                <p>Applications iOS et Android performantes et intuitives pour répondre à vos besoins spécifiques et offrir une expérience utilisateur exceptionnelle.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">🔒</div>
+                <h3>Cybersécurité</h3>
+                <p>Protection de vos données et systèmes informatiques contre les menaces actuelles avec des solutions robustes et évolutives.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">🤖</div>
+                <h3>Intelligence Artificielle</h3>
+                <p>Intégration de solutions d'IA personnalisées pour optimiser vos processus métier et prendre des décisions basées sur les données.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">📊</div>
+                <h3>Machine Learning</h3>
+                <p>Développement d'algorithmes d'apprentissage automatique pour analyser vos données et en extraire des insights précieux.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">🖨️</div>
+                <h3>Services d'Impression</h3>
+                <p>Impression de qualité professionnelle pour tous vos supports de communication, de la carte de visite à l'affiche grand format.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Formations -->
+    <section id="formations" class="page section">
+        <h2 class="section-title">Nos Formations</h2>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">🎓</div>
+                <h3>Développement Front-end</h3>
+                <p>Maîtrisez HTML, CSS et JavaScript pour créer des interfaces utilisateur modernes et réactives.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">⚙️</div>
+                <h3>Développement Back-end</h3>
+                <p>Apprenez à concevoir des API robustes et des systèmes de base de données performants pour vos applications web.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">📊</div>
+                <h3>Science des Données</h3>
+                <p>Exploitez la puissance de l'analyse de données pour prendre des décisions éclairées et optimiser vos processus métier.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">🎨</div>
+                <h3>Design UX/UI</h3>
+                <p>Créez des interfaces utilisateur intuitives et esthétiques qui offrent une expérience utilisateur exceptionnelle.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">🤖</div>
+                <h3>Intelligence Artificielle</h3>
+                <p>Découvrez les fondements de l'IA et comment l'appliquer à votre domaine d'expertise pour résoudre des problèmes complexes.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">📱</div>
+                <h3>Développement Mobile</h3>
+                <p>Apprenez à créer des applications mobiles natives et multiplateformes avec les frameworks les plus populaires.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Design -->
+    <section id="design" class="page section">
+        <h2 class="section-title">Solutions de Design</h2>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">🎭</div>
+                <h3>Identité de Marque</h3>
+                <p>Développez une identité visuelle distinctive et mémorable qui reflète les valeurs et la mission de votre entreprise.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">📱</div>
+                <h3>Interfaces Utilisateur</h3>
+                <p>Conception d'interfaces intuitives et esthétiques pour offrir une expérience utilisateur exceptionnelle sur tous les appareils.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">🖼️</div>
+                <h3>Communication Visuelle</h3>
+                <p>Création de supports visuels impactants pour communiquer efficacement votre message auprès de votre public cible.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">📊</div>
+                <h3>Data Visualisation</h3>
+                <p>Transformation de données complexes en représentations visuelles claires et compréhensibles pour faciliter la prise de décision.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">🏢</div>
+                <h3>Identité Corporative</h3>
+                <p>Création d'une identité cohérente pour votre entreprise, incluant logo, papeterie, signalétique et guides de style.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">📰</div>
+                <h3>Supports Marketing</h3>
+                <p>Conception de brochures, flyers, affiches et autres supports marketing imprimés et digitaux pour promouvoir vos produits et services.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Filiales -->
+    <section id="filiales" class="page section filiales-section">
+        <h2 class="section-title">Nos Filiales</h2>
+        <div class="card-container">
+            <div class="filiale-card">
+                <div class="filiale-logo" aria-hidden="true">🎭</div>
+                <h3>Saas-4Kultur</h3>
+                <p>Solutions logicielles pour le secteur culturel et événementiel, facilitant la gestion des événements, la billetterie et la promotion culturelle.</p>
+                <a href="#" class="btn" style="margin-top: 1.5rem;">En savoir plus</a>
+            </div>
+            <div class="filiale-card">
+                <div class="filiale-logo" aria-hidden="true">🎬</div>
+                <h3>Commun-Shot</h3>
+                <p>Production audiovisuelle et services multimédias pour les entreprises et organisations souhaitant améliorer leur communication visuelle.</p>
+                <a href="#" class="btn" style="margin-top: 1.5rem;">En savoir plus</a>
+            </div>
+            <div class="filiale-card">
+                <div class="filiale-logo" aria-hidden="true">🎓</div>
+                <h3>JeuneEducAI</h3>
+                <p>ONG dédiée à l'éducation technologique et à l'intelligence artificielle pour les jeunes dans les régions défavorisées.</p>
+                <a href="#" class="btn" style="margin-top: 1.5rem;">En savoir plus</a>
+            </div>
+            <div class="filiale-card">
+                <div class="filiale-logo" aria-hidden="true">🌙</div>
+                <h3>Moonfund</h3>
+                <p>Fonds d'investissement pour startups technologiques en Afrique, avec un focus sur l'innovation et l'impact social positif.</p>
+                <a href="#" class="btn" style="margin-top: 1.5rem;">En savoir plus</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Experts -->
+    <section id="experts" class="page section">
+        <h2 class="section-title">Nos Experts</h2>
+        <div class="card-container">
+            <div class="expert-card">
+                <div class="expert-photo">
+                    <img src="oumaar.jpg" alt="Photo Oumar" aria-label="Photo de Oumar, CEO">
+                </div>
+                <div class="expert-info">
+                    <h4>Oumar</h4>
+                    <p>CEO & Fondateur</p>
+                    <p>Visionnaire technologique avec plus de 8 ans d'expérience dans le développement de solutions innovantes.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn de Oumar">in
+</a>
+<a href="#" class="social-link" aria-label="Twitter de Oumar">𝕏</a>
+<a href="#" class="social-link" aria-label="Email de Oumar">✉️</a>
+</div>
+</div>
+</div>
+
+<div class="expert-card">
+<div class="expert-photo">
+<img src="hu.jpg" alt="Photo N'Denga" aria-label="Photo de N'Denga, IT Support">
+</div>
+<div class="expert-info">
+<h4>N'Denga Hubert</h4>
+<p>IT Support Manager</p>
+<p>Expert en infrastructure IT et systèmes de sécurité avec une approche centrée sur le client.</p>
+<div class="social-links">
+<a href="#" class="social-link" aria-label="LinkedIn de N'Denga">in</a>
+<a href="#" class="social-link" aria-label="Twitter de N'Denga">𝕏</a>
+<a href="#" class="social-link" aria-label="Email de N'Denga">✉️</a>
+</div>
+</div>
+</div>
+
+<div class="expert-card">
+<div class="expert-photo">
+<img src="images.jpeg" alt="Photo Kouki Tarek" aria-label="Photo de Kouki Tarek, DSI">
+</div>
+<div class="expert-info">
+<h4>Kouki Tarek</h4>
+<p>DSI IAHF</p>
+<p>Professeur d'université, Stratège technologique spécialisé dans l'implémentation de solutions innovantes pour les défis complexes.</p>
+<div class="social-links">
+<a href="#" class="social-link" aria-label="LinkedIn de Kouki Tarek">in</a>
+<a href="#" class="social-link" aria-label="Twitter de Kouki Tarek">𝕏</a>
+<a href="#" class="social-link" aria-label="Email de Kouki Tarek">✉️</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Pied de page avec témoignages -->
+<footer class="footer">
+<div class="footer-content">
+<h3>Prêt à transformer votre vision en réalité ?</h3>
+<p>Contactez-nous dès aujourd'hui pour discuter de vos besoins et découvrir comment nous pouvons vous aider.</p>
+
+<!-- Section témoignages -->
+<div class="testimonials-container" style="margin: 2.5rem 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+<div class="testimonial" style="max-width: 300px; background-color: rgba(255,255,255,0.1); border-radius: 10px; padding: 1.5rem; text-align: left;">
+<div style="display: flex; align-items: center; margin-bottom: 1rem;">
+<div class="testimonial-image" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin-right: 1rem; background-color: var(--secondary-color); display: flex; align-items: center; justify-content: center;">
+    <img src="hu.jpg" alt="Photo de profil" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+<div>
+    <h4 style="margin: 0; color: #ffffff;">N'Denga Hubert</h4>
+    <p style="margin: 0; font-size: 0.8rem; color: rgba(255,255,255,0.8);">Co-funder of EducTalk</p>
+</div>
+</div>
+<p style="font-style: italic; font-size: 0.95rem; color: rgba(255,255,255,0.9);">
+"MONOFA a transformé notre présence en ligne avec un site web remarquable. Leur expertise technique et leur professionnalisme sont exceptionnels."
+</p>
+</div>
+
+<div class="testimonial" style="max-width: 300px; background-color: rgba(255,255,255,0.1); border-radius: 10px; padding: 1.5rem; text-align: left;">
+<div style="display: flex; align-items: center; margin-bottom: 1rem;">
+<div class="testimonial-image" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin-right: 1rem; background-color: var(--secondary-color); display: flex; align-items: center; justify-content: center;">
+    <img src="rc.jpg" alt="Photo de profil" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+<div>
+    <h4 style="margin: 0; color: #ffffff;">Sarah Ben Ali</h4>
+    <p style="margin: 0; font-size: 0.8rem; color: rgba(255,255,255,0.8);">Directrice Marketing, InnoTech Tunis</p>
+</div>
+</div>
+<p style="font-style: italic; font-size: 0.95rem; color: rgba(255,255,255,0.9);">
+"La formation en développement web que nous avons suivie chez MONOFA a été incroyablement enrichissante. Notre équipe est maintenant plus performante que jamais."
+</p>
+</div>
+</div>
+
+<button class="footer-btn" aria-label="Nous contacter">Nous contacter</button>
+<button class="footer-btn" aria-label="Nous rejoindre">Nous Rejoindre</button>
+
+<div class="contact-info" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2);">
+<p style="font-size: 0.95rem;">
+<strong>Email:</strong> monofa29@gmail.com | 
+<strong>Téléphone:</strong> 626230337 -<b>Tunisie</b> / 0021656678708
+</p>
+<p style="font-size: 0.95rem;">
+<strong>Bureaux:</strong> Guinée/Conackry - Tunisie/Tunis
+</p>
+<p style="font-size: 0.9rem; margin-top: 1.5rem;">
+&copy; 2025 MONOFA. Tous droits réservés.
+</p>
+</div>
+</div>
+</footer>
+
+<script>
+// Loading animation
+window.addEventListener('load', () => {
+const loader = document.getElementById('loader');
+setTimeout(() => {
+loader.style.opacity = '0';
+setTimeout(() => {
+loader.style.display = 'none';
+}, 500);
+}, 800);
+});
+
+// Animation des courbes avec optimisation performance
+let lastScrollTime = 0;
+const animateCurves = (e) => {
+const now = Date.now();
+if (now - lastScrollTime < 50) return; // Throttle animation
+lastScrollTime = now;
+
+const curves = document.querySelectorAll('.curve');
+const x = e.clientX / window.innerWidth;
+const y = e.clientY / window.innerHeight;
+
+requestAnimationFrame(() => {
+curves.forEach((curve, index) => {
+const offsetX = (index + 1) * 10 * (x - 0.5);
+const offsetY = (index + 1) * 5 * (y - 0.5);
+curve.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+});
+});
+};
+
+document.addEventListener('mousemove', animateCurves);
+
+// Navigation entre les pages
+const navButtons = document.querySelectorAll('.nav-btn');
+const pages = document.querySelectorAll('.page');
+
+navButtons.forEach(button => {
+button.addEventListener('click', () => {
+const targetPage = button.getAttribute('data-page');
+
+if (targetPage === 'home') {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+if (targetPage) {
+// Désactiver toutes les pages
+pages.forEach(page => {
+page.classList.remove('active');
+});
+
+// Activer la page cible
+const pageElement = document.getElementById(targetPage);
+if (pageElement) {
+pageElement.classList.add('active');
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+} else {
+alert(`Navigation vers: ${button.textContent}`);
+}
+});
+
+// Amélioration de l'accessibilité
+button.addEventListener('keydown', (e) => {
+if (e.key === 'Enter' || e.key === ' ') {
+e.preventDefault();
+button.click();
+}
+});
+});
+
+// Animation au défilement optimisée
+const handleScroll = () => {
+requestAnimationFrame(() => {
+const cards = document.querySelectorAll('.card, .filiale-card, .expert-card');
+cards.forEach(card => {
+const cardPosition = card.getBoundingClientRect().top;
+const screenPosition = window.innerHeight / 1.2;
+
+if (cardPosition < screenPosition) {
+card.style.opacity = '1';
+card.style.transform = card.classList.contains('expert-card') ? 'translateY(0)' : 'translateY(0)';
+}
+});
+});
+};
+
+// Animation parallaxe pour les sections
+const parallaxSections = document.querySelectorAll('.section');
+
+const handleParallax = () => {
+requestAnimationFrame(() => {
+parallaxSections.forEach(section => {
+const scrollPosition = window.pageYOffset;
+const sectionTop = section.offsetTop;
+const sectionHeight = section.offsetHeight;
+
+if (scrollPosition > sectionTop - window.innerHeight && 
+scrollPosition < sectionTop + sectionHeight) {
+const speed = section.getAttribute('data-speed') || 0.2;
+const yPos = (scrollPosition - sectionTop) * speed;
+section.style.backgroundPositionY = `${yPos}px`;
+}
+});
+});
+};
+
+// Optimisation de l'écoute du défilement
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+if (!scrollTimeout) {
+scrollTimeout = setTimeout(() => {
+scrollTimeout = null;
+handleScroll();
+handleParallax();
+}, 20);
+}
+});
+
+// Animation des boutons
+const animateButtons = () => {
+const buttons = document.querySelectorAll('.btn, .footer-btn');
+buttons.forEach(button => {
+button.addEventListener('mouseover', () => {
+button.style.transform = 'translateY(-5px)';
+button.style.boxShadow = '0 10px 15px rgba(0, 0, 0, 0.2)';
+});
+
+button.addEventListener('mouseout', () => {
+button.style.transform = '';
+button.style.boxShadow = '';
+});
+});
+};
+
+// Animation des cartes au survol avec effet 3D
+const initCard3DEffect = () => {
+const cards = document.querySelectorAll('.card, .filiale-card');
+
+cards.forEach(card => {
+card.addEventListener('mousemove', (e) => {
+const cardRect = card.getBoundingClientRect();
+const cardCenterX = cardRect.left + cardRect.width / 2;
+const cardCenterY = cardRect.top + cardRect.height / 2;
+const mouseX = e.clientX - cardCenterX;
+const mouseY = e.clientY - cardCenterY;
+
+const rotateY = mouseX / 15;
+const rotateX = -mouseY / 15;
+
+card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+});
+
+card.addEventListener('mouseleave', () => {
+card.style.transform = '';
+setTimeout(() => {
+card.style.transition = '';
+}, 300);
+});
+
+card.addEventListener('mouseenter', () => {
+card.style.transition = 'transform 0.3s ease';
+});
+});
+};
+
+// Effet de typing pour les titres de section
+const initTypingEffect = () => {
+const titles = document.querySelectorAll('.section-title');
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const title = entry.target;
+const text = title.textContent;
+title.textContent = '';
+title.style.opacity = '1';
+
+let i = 0;
+const typeInterval = setInterval(() => {
+    if (i < text.length) {
+        title.textContent += text.charAt(i);
+        i++;
+    } else {
+        clearInterval(typeInterval);
+    }
+}, 50);
+
+observer.unobserve(title);
+}
+});
+}, { threshold: 0.5 });
+
+titles.forEach(title => {
+title.style.opacity = '0';
+observer.observe(title);
+});
+};
+
+// Initialisation des animations
+document.addEventListener('DOMContentLoaded', () => {
+handleScroll();
+animateButtons();
+initCard3DEffect();
+initTypingEffect();
+});
+</script>
+</body>
+</html>
