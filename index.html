@@ -596,23 +596,6 @@
     </style>
 </head>
 <body>
-    <!-- AI Chat Widget -->
-<div id="ai-chat-container" style="position: fixed; bottom: 20px; right: 20px; width: 350px; max-height: 500px; background: white; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.2); z-index: 1000; display: none; flex-direction: column;">
-    <div id="ai-chat-header" style="background: var(--primary-color); color: white; padding: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-        <h3 style="margin: 0;">MONOFA Tech Assistant</h3>
-        <button id="ai-chat-close" style="background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer;">×</button>
-    </div>
-    <div id="ai-chat-messages" style="flex: 1; padding: 15px; overflow-y: auto; max-height: 350px;"></div>
-    <div style="padding: 15px; border-top: 1px solid #eee;">
-        <input type="text" id="ai-chat-input" placeholder="Ask a tech question..." style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none;">
-        <button id="ai-chat-send" style="background: var(--primary-color); color: white; border: none; border-radius: 20px; padding: 8px 15px; margin-top: 10px; cursor: pointer;">Send</button>
-    </div>
-</div>
-
-<!-- Chat Toggle Button -->
-<button id="ai-chat-toggle" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: var(--primary-color); color: white; border: none; border-radius: 50%; font-size: 1.5rem; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 999;">
-    <span style="font-size: 1.8rem;">🤖</span>
-</button>
     <!-- Loading Animation -->
     <div class="loader-container" id="loader">
         <div class="loader" aria-label="Chargement en cours"></div>
@@ -629,8 +612,7 @@
             <button class="nav-btn" data-page="formations" aria-label="Voir nos formations">Formations</button>
             <button class="nav-btn" data-page="design" aria-label="Voir nos services de design">Design</button>
             <button class="nav-btn" data-page="filiales" aria-label="Nos filiales">Filiales</button>
-            <button class="nav-btn" data-page="experts" aria-label="Nos experts">Experts</button>
-            <button class="nav-btn" aria-label="Consulter la FAQ">Contact-FAQ</button>
+            <button class="nav-btn" data-page="experts" aria-label="Nos experts">Equipe</button>
         </nav>
     </header>
 
@@ -958,12 +940,12 @@
         <div class="card-container">
             <div class="expert-card">
                 <div class="expert-photo">
-                    <img src="/api/placeholder/120/120" alt="Photo Oumar" aria-label="Photo de Oumar, CEO">
+                    <img src="oumaar.jpg" alt="Photo Oumar" aria-label="Photo de Oumar, CEO">
                 </div>
                 <div class="expert-info">
                     <h4>Oumar</h4>
                     <p>CEO & Fondateur</p>
-                    <p>Visionnaire technologique avec plus de 10 ans d'expérience dans le développement de solutions innovantes.</p>
+                    <p>Visionnaire technologique avec plus de 5 ans d'expérience dans le développement de solutions innovantes.</p>
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="LinkedIn de Oumar">in
 </a>
@@ -975,7 +957,7 @@
 
 <div class="expert-card">
 <div class="expert-photo">
-<img src="/api/placeholder/120/120" alt="Photo N'Denga" aria-label="Photo de N'Denga, IT Support">
+<img src="hu.jpg" alt="Photo N'Denga" aria-label="Photo de N'Denga, IT Support">
 </div>
 <div class="expert-info">
 <h4>N'Denga Hubert</h4>
@@ -991,12 +973,12 @@
 
 <div class="expert-card">
 <div class="expert-photo">
-<img src="/api/placeholder/120/120" alt="Photo Kouki Tarek" aria-label="Photo de Kouki Tarek, DSI">
+<img src="h.webp" alt="Photo Kouki Tarek" aria-label="Photo de Kouki Tarek, DSI">
 </div>
 <div class="expert-info">
 <h4>Kouki Tarek</h4>
 <p>DSI IAHF</p>
-<p>Stratège technologique spécialisé dans l'implémentation de solutions innovantes pour les défis complexes.</p>
+<p>Professeur d'université, Stratège technologique spécialisé dans l'implémentation de solutions innovantes pour les défis complexes.</p>
 <div class="social-links">
 <a href="#" class="social-link" aria-label="LinkedIn de Kouki Tarek">in</a>
 <a href="#" class="social-link" aria-label="Twitter de Kouki Tarek">𝕏</a>
@@ -1018,7 +1000,7 @@
 <div class="testimonial" style="max-width: 300px; background-color: rgba(255,255,255,0.1); border-radius: 10px; padding: 1.5rem; text-align: left;">
 <div style="display: flex; align-items: center; margin-bottom: 1rem;">
 <div class="testimonial-image" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin-right: 1rem; background-color: var(--secondary-color); display: flex; align-items: center; justify-content: center;">
-    <img src="/api/placeholder/60/60" alt="Photo de profil" style="width: 100%; height: 100%; object-fit: cover;">
+    <img src="hu.jpg" alt="Photo de profil" style="width: 100%; height: 100%; object-fit: cover;">
 </div>
 <div>
     <h4 style="margin: 0; color: #ffffff;">N'Denga Hubert</h4>
@@ -1033,7 +1015,7 @@
 <div class="testimonial" style="max-width: 300px; background-color: rgba(255,255,255,0.1); border-radius: 10px; padding: 1.5rem; text-align: left;">
 <div style="display: flex; align-items: center; margin-bottom: 1rem;">
 <div class="testimonial-image" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin-right: 1rem; background-color: var(--secondary-color); display: flex; align-items: center; justify-content: center;">
-    <img src="/api/placeholder/60/60" alt="Photo de profil" style="width: 100%; height: 100%; object-fit: cover;">
+    <img src="rc.jpg" alt="Photo de profil" style="width: 100%; height: 100%; object-fit: cover;">
 </div>
 <div>
     <h4 style="margin: 0; color: #ffffff;">Sarah Ben Ali</h4>
@@ -1053,6 +1035,7 @@
 <p style="font-size: 0.95rem;">
 <strong>Email:</strong> monofa29@gmail.com | 
 <strong>Téléphone:</strong> 626230337
+ -<b>Tunisie</b> / 0021656678708
 </p>
 <p style="font-size: 0.95rem;">
 <strong>Bureaux:</strong> Guinée/Conackry - Tunisie/Tunis
@@ -1270,177 +1253,6 @@ handleScroll();
 animateButtons();
 initCard3DEffect();
 initTypingEffect();
-});
-
-// AI Chat Functionality
-const chatContainer = document.getElementById('ai-chat-container');
-const chatToggle = document.getElementById('ai-chat-toggle');
-const chatClose = document.getElementById('ai-chat-close');
-const chatMessages = document.getElementById('ai-chat-messages');
-const chatInput = document.getElementById('ai-chat-input');
-const chatSend = document.getElementById('ai-chat-send');
-
-// Toggle chat visibility
-chatToggle.addEventListener('click', () => {
-    chatContainer.style.display = chatContainer.style.display === 'flex' ? 'none' : 'flex';
-});
-
-chatClose.addEventListener('click', () => {
-    chatContainer.style.display = 'none';
-});
-
-// Add message to chat
-function addMessage(content, isUser = false) {
-    const messageDiv = document.createElement('div');
-    messageDiv.style.marginBottom = '10px';
-    messageDiv.style.padding = '10px';
-    messageDiv.style.borderRadius = '10px';
-    messageDiv.style.maxWidth = '80%';
-    messageDiv.style.wordWrap = 'break-word';
-    
-    if (isUser) {
-        messageDiv.style.backgroundColor = 'var(--light-blue)';
-        messageDiv.style.marginLeft = 'auto';
-        messageDiv.style.borderBottomRightRadius = '0';
-    } else {
-        messageDiv.style.backgroundColor = '#f1f1f1';
-        messageDiv.style.marginRight = 'auto';
-        messageDiv.style.borderBottomLeftRadius = '0';
-    }
-    
-    messageDiv.textContent = content;
-    chatMessages.appendChild(messageDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-}
-
-// Free AI API options (choose one)
-
-// Option 1: OpenAI API (requires API key - you can get a free one)
-async function getAIResponseOpenAI(question) {
-    const apiKey = 'YOUR_OPENAI_API_KEY'; // Replace with your key
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
-        },
-        body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [
-                {
-                    role: "system",
-                    content: "You are a helpful tech assistant for MONOFA, a technology solutions company. Answer questions about web development, mobile apps, AI, cybersecurity, and other tech topics. Keep responses concise and professional."
-                },
-                {
-                    role: "user",
-                    content: question
-                }
-            ],
-            temperature: 0.7
-        })
-    });
-    
-    const data = await response.json();
-    return data.choices[0].message.content;
-}
-
-// Option 2: Free alternative - Hugging Face Inference API
-async function getAIResponseHuggingFace(question) {
-    const response = await fetch('https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill', {
-        method: 'POST',
-        headers: {
-            'Authorization': 'Bearer YOUR_HUGGINGFACE_API_KEY',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            inputs: {
-                past_user_inputs: [],
-                generated_responses: [],
-                text: question
-            }
-        })
-    });
-    
-    const data = await response.json();
-    return data.generated_text;
-}
-
-// Option 3: Free alternative - DeepAI Text Generator
-async function getAIResponseDeepAI(question) {
-    const response = await fetch('https://api.deepai.org/api/text-generator', {
-        method: 'POST',
-        headers: {
-            'api-key': 'YOUR_DEEPAI_API_KEY',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            text: `Tech question: ${question}`
-        })
-    });
-    
-    const data = await response.json();
-    return data.output;
-}
-
-// Simple local responses (fallback if no API)
-function getLocalAIResponse(question) {
-    const responses = {
-        "hello": "Hello! I'm MONOFA's tech assistant. How can I help you with technology questions today?",
-        "web development": "MONOFA offers comprehensive web development services including frontend, backend, and full-stack solutions using modern technologies like React, Angular, and Node.js.",
-        "mobile apps": "We develop cross-platform mobile applications using React Native and Flutter, as well as native iOS and Android apps.",
-        "ai": "Our AI services include machine learning, computer vision, natural language processing, and predictive analytics solutions.",
-        "cybersecurity": "We provide cybersecurity services including vulnerability assessments, penetration testing, and security architecture design."
-    };
-    
-    const lowerQuestion = question.toLowerCase();
-    for (const [key, value] of Object.entries(responses)) {
-        if (lowerQuestion.includes(key)) {
-            return value;
-        }
-    }
-    
-    return "I'm sorry, I can't answer that right now. Please contact MONOFA directly for more specific inquiries about our tech services.";
-}
-
-// Handle sending messages
-chatSend.addEventListener('click', async () => {
-    const question = chatInput.value.trim();
-    if (!question) return;
-    
-    addMessage(question, true);
-    chatInput.value = '';
-    
-    // Show typing indicator
-    const typingIndicator = document.createElement('div');
-    typingIndicator.textContent = 'Tech Assistant is typing...';
-    typingIndicator.style.color = '#666';
-    typingIndicator.style.fontStyle = 'italic';
-    chatMessages.appendChild(typingIndicator);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-    
-    try {
-        // Choose one of the API options above
-        // const response = await getAIResponseOpenAI(question);
-        // const response = await getAIResponseHuggingFace(question);
-        // const response = await getAIResponseDeepAI(question);
-        const response = getLocalAIResponse(question); // Fallback
-        
-        chatMessages.removeChild(typingIndicator);
-        addMessage(response);
-    } catch (error) {
-        chatMessages.removeChild(typingIndicator);
-        addMessage("I'm having trouble connecting to the tech knowledge base. Please try again later or contact MONOFA directly.");
-        console.error("AI API error:", error);
-    }
-});
-
-
-
-// Allow pressing Enter to send
-chatInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        chatSend.click();
-    }
 });
 </script>
 </body>
