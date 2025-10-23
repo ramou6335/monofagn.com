@@ -1,11 +1,19 @@
+Voici le code complet avec tous les changements appliqués :
+
+```html
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="MONOFA - Solutions Technologiques innovantes : Développement Web, Applications Mobiles, IA, Cybersécurité. Expertise technique pour transformer votre entreprise.">
     <title>MONOFA - Solutions Technologiques Innovantes</title>
     <link rel="icon" href="Logo.png" type="image/png">
+    
+    <!-- Métadonnées SEO -->
+    <meta name="keywords" content="développement web, applications mobiles, cybersécurité, intelligence artificielle, MONOFA, solutions technologiques">
+    <meta name="author" content="MONOFA">
+    <meta name="robots" content="index, follow">
     
     <!-- Métadonnées Open Graph -->
     <meta property="og:title" content="MONOFA - Solutions Technologiques Innovantes">
@@ -18,6 +26,12 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MONOFA - Solutions Technologiques">
     <meta name="twitter:description" content="Expertise en développement web, mobile, IA et cybersécurité">
+    
+    <!-- Métadonnées supplémentaires -->
+    <link rel="canonical" href="https://monofa.com">
+    <meta name="theme-color" content="#10367D">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     
     <style>
         /* CSS Reset and Base Styles */
@@ -50,6 +64,20 @@
             color: var(--text-color);
             overflow-x: hidden;
             line-height: 1.6;
+        }
+
+        /* Classes de couleur pour le texte */
+        .highlight { 
+            color: var(--secondary-color); 
+        }
+        
+        .accent-highlight { 
+            color: var(--accent-color); 
+        }
+        
+        .monofa-highlight { 
+            color: var(--primary-color); 
+            font-weight: bold; 
         }
         
         /* Loading Animation */
@@ -110,6 +138,7 @@
             height: 70px;
             width: auto;
             transition: all var(--transition-speed) ease;
+            loading: eager;
         }
         
         .header.scrolled .logo img {
@@ -236,6 +265,7 @@
             max-width: 900px;
             padding: 2rem;
             z-index: 10;
+            will-change: transform, opacity;
         }
         
         h1 {
@@ -528,6 +558,7 @@
             overflow: hidden;
             position: relative;
             border: 1px solid rgba(0, 0, 0, 0.05);
+            will-change: transform, opacity;
         }
         
         .card.visible {
@@ -658,6 +689,8 @@
             height: 50px;
             object-fit: contain;
             z-index: 1;
+            transform: translateZ(0);
+            loading: lazy;
         }
         
         /* Services Section */
@@ -686,6 +719,7 @@
             position: relative;
             overflow: hidden;
             text-align: center;
+            will-change: transform, opacity;
         }
         
         .filiale-card.visible {
@@ -1021,6 +1055,41 @@
                 width: 100%;
             }
         }
+
+        @media (max-width: 480px) {
+            .hero-content {
+                padding: 1rem 0.5rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .modal-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .header {
+                padding: 0.5rem;
+            }
+            
+            .logo img {
+                height: 50px;
+            }
+            
+            .section {
+                padding: 3rem 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1105,700 +1174,4 @@
         <section id="accueil" class="hero">
             <div class="curves-container" aria-hidden="true">
                 <div class="curve curve-1"></div>
-                <div class="curve curve-2"></div>
-                <div class="curve curve-3"></div>
-            </div>
-            <div class="hero-content">
-                <h1><span class="monofa-highlight">Monofa</span> - <span class="accent-highlight">Innovation</span> <span class="highlight">Technologique</span></h1>
-                <p>Nous concevons des solutions sur mesure pour propulser votre entreprise vers l'avenir. Expertise, innovation et excellence sont au cœur de notre approche.</p>
-                <button class="btn" id="heroBtn" aria-label="En savoir plus sur nos services">Découvrir nos services</button>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="section services-section">
-            <h2 class="section-title">Nos Services</h2>
-            <div class="card-container">
-                <div class="card" data-modal="developpement-web">
-                    <div class="card-icon" aria-hidden="true">💻</div>
-                    <h3>Développement Web</h3>
-                    <p>Sites vitrines, plateformes e-commerce et applications web sur mesure pour votre entreprise avec les dernières technologies.</p>
-                </div>
-                <div class="card" data-modal="applications-mobiles">
-                    <div class="card-icon" aria-hidden="true">📱</div>
-                    <h3>Applications Mobiles</h3>
-                    <p>Applications iOS et Android performantes et intuitives pour répondre à vos besoins spécifiques et offrir une expérience utilisateur exceptionnelle.</p>
-                </div>
-                <div class="card" data-modal="cybersecurite">
-                    <div class="card-icon" aria-hidden="true">🔒</div>
-                    <h3>Cybersécurité</h3>
-                    <p>Protection de vos données et systèmes informatiques contre les menaces actuelles avec des solutions robustes et évolutives.</p>
-                </div>
-                <div class="card" data-modal="intelligence-artificielle">
-                    <div class="card-icon" aria-hidden="true">🤖</div>
-                    <h3>Intelligence Artificielle</h3>
-                    <p>Intégration de solutions d'IA personnalisées pour optimiser vos processus métier et prendre des décisions basées sur les données.</p>
-                </div>
-                <div class="card" data-modal="machine-learning">
-                    <div class="card-icon" aria-hidden="true">📊</div>
-                    <h3>Machine Learning</h3>
-                    <p>Développement d'algorithmes d'apprentissage automatique pour analyser vos données et en extraire des insights précieux.</p>
-                </div>
-                <div class="card" data-modal="services-impression">
-                    <div class="card-icon" aria-hidden="true">🖨️</div>
-                    <h3>Services d'Impression</h3>
-                    <p>Impression de qualité professionnelle pour tous vos supports de communication, de la carte de visite à l'affiche grand format.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Technologies Section -->
-        <section id="technologies" class="section">
-            <h2 class="section-title">Nos Technologies</h2>
-            <p style="text-align: center; max-width: 800px; margin-bottom: 3rem;">
-                Nous maîtrisons l'écosystème technologique le plus complet pour développer des solutions sur-mesure, performantes et évolutives.
-            </p>
-            
-            <div class="tech-categories">
-                <!-- Développement Mobile -->
-                <div class="tech-group">
-                    <h3 class="tech-group-title">Mobile</h3>
-                    <div class="tech-container">
-                        <div class="tech-icon" title="React Native" data-modal="react-native">
-                            <img src="https://cdn.worldvectorlogo.com/logos/react-native-1.svg" alt="React Native">
-                        </div>
-                        <div class="tech-icon" title="Flutter" data-modal="flutter">
-                            <img src="https://cdn.worldvectorlogo.com/logos/flutter-logo.svg" alt="Flutter">
-                        </div>
-                        <div class="tech-icon" title="Kotlin" data-modal="kotlin">
-                            <img src="https://cdn.worldvectorlogo.com/logos/kotlin-1.svg" alt="Kotlin">
-                        </div>
-                        <div class="tech-icon" title="Swift" data-modal="swift">
-                            <img src="https://cdn.worldvectorlogo.com/logos/swift-15.svg" alt="Swift">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Frontend -->
-                <div class="tech-group">
-                    <h3 class="tech-group-title">Frontend</h3>
-                    <div class="tech-container">
-                        <div class="tech-icon" title="React" data-modal="react">
-                            <img src="https://cdn.worldvectorlogo.com/logos/react-2.svg" alt="React">
-                        </div>
-                        <div class="tech-icon" title="Vue.js" data-modal="vuejs">
-                            <img src="https://cdn.worldvectorlogo.com/logos/vue-9.svg" alt="Vue.js">
-                        </div>
-                        <div class="tech-icon" title="Angular" data-modal="angular">
-                            <img src="https://cdn.worldvectorlogo.com/logos/angular-icon-1.svg" alt="Angular">
-                        </div>
-                        <div class="tech-icon" title="Svelte" data-modal="svelte">
-                            <img src="https://cdn.worldvectorlogo.com/logos/svelte-1.svg" alt="Svelte">
-                        </div>
-                        <div class="tech-icon" title="TypeScript" data-modal="typescript">
-                            <img src="https://cdn.worldvectorlogo.com/logos/typescript.svg" alt="TypeScript">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Backend -->
-                <div class="tech-group">
-                    <h3 class="tech-group-title">Backend</h3>
-                    <div class="tech-container">
-                        <div class="tech-icon" title="Node.js" data-modal="nodejs">
-                            <img src="https://cdn.worldvectorlogo.com/logos/nodejs-1.svg" alt="Node.js">
-                        </div>
-                        <div class="tech-icon" title="Python" data-modal="python">
-                            <img src="https://cdn.worldvectorlogo.com/logos/python-5.svg" alt="Python">
-                        </div>
-                        <div class="tech-icon" title="Django" data-modal="django">
-                            <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="Django">
-                        </div>
-                        <div class="tech-icon" title="Spring" data-modal="spring">
-                            <img src="https://cdn.worldvectorlogo.com/logos/spring-3.svg" alt="Spring">
-                        </div>
-                        <div class="tech-icon" title="Go" data-modal="go">
-                            <img src="https://cdn.worldvectorlogo.com/logos/gopher.svg" alt="Go">
-                        </div>
-                        <div class="tech-icon" title="Rust" data-modal="rust">
-                            <img src="https://cdn.worldvectorlogo.com/logos/rust.svg" alt="Rust">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cloud & DevOps -->
-                <div class="tech-group">
-                    <h3 class="tech-group-title">Cloud & DevOps</h3>
-                    <div class="tech-container">
-                        <div class="tech-icon" title="AWS" data-modal="aws">
-                            <img src="https://cdn.worldvectorlogo.com/logos/aws-2.svg" alt="AWS">
-                        </div>
-                        <div class="tech-icon" title="Docker" data-modal="docker">
-                            <img src="https://cdn.worldvectorlogo.com/logos/docker.svg" alt="Docker">
-                        </div>
-                        <div class="tech-icon" title="Kubernetes" data-modal="kubernetes">
-                            <img src="https://cdn.worldvectorlogo.com/logos/kubernets.svg" alt="Kubernetes">
-                        </div>
-                        <div class="tech-icon" title="Terraform" data-modal="terraform">
-                            <img src="https://cdn.worldvectorlogo.com/logos/terraform-enterprise.svg" alt="Terraform">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bases de données -->
-                <div class="tech-group">
-                    <h3 class="tech-group-title">Bases de données</h3>
-                    <div class="tech-container">
-                        <div class="tech-icon" title="PostgreSQL" data-modal="postgresql">
-                            <img src="https://cdn.worldvectorlogo.com/logos/postgresql.svg" alt="PostgreSQL">
-                        </div>
-                        <div class="tech-icon" title="MongoDB" data-modal="mongodb">
-                            <img src="https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" alt="MongoDB">
-                        </div>
-                        <div class="tech-icon" title="Redis" data-modal="redis">
-                            <img src="https://cdn.worldvectorlogo.com/logos/redis.svg" alt="Redis">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Filiales Section -->
-        <section id="filiales" class="section filiales-section">
-            <h2 class="section-title">Nos Filiales</h2>
-            <div class="card-container">
-                <div class="filiale-card" data-modal="saas-4kultur">
-                    <div class="filiale-logo" aria-hidden="true">🎭</div>
-                    <h3>Saas-4Kultur</h3>
-                    <p>Solutions logicielles pour le secteur culturel et événementiel, facilitant la gestion des événements, la billetterie et la promotion culturelle.</p>
-                    <button class="btn" style="margin-top: 1.5rem;">En savoir plus</button>
-                </div>
-                <div class="filiale-card" data-modal="commun-shot">
-                    <div class="filiale-logo" aria-hidden="true">🎬</div>
-                    <h3>Commun-Shot</h3>
-                    <p>Production audiovisuelle et services multimédias pour les entreprises et organisations souhaitant améliorer leur communication visuelle.</p>
-                    <button class="btn" style="margin-top: 1.5rem;">En savoir plus</button>
-                </div>
-                <div class="filiale-card" data-modal="jeune-educ-ai">
-                    <div class="filiale-logo" aria-hidden="true">🎓</div>
-                    <h3>JeuneEducAI</h3>
-                    <p>ONG dédiée à l'éducation technologique et à l'intelligence artificielle pour les jeunes dans les régions défavorisées.</p>
-                    <button class="btn" style="margin-top: 1.5rem;">En savoir plus</button>
-                </div>
-                <div class="filiale-card" data-modal="moonfund">
-                    <div class="filiale-logo" aria-hidden="true">🌙</div>
-                    <h3>Moonfund</h3>
-                    <p>Fonds d'investissement pour startups technologiques en Afrique, avec un focus sur l'innovation et l'impact social positif.</p>
-                    <button class="btn" style="margin-top: 1.5rem;">En savoir plus</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-            <h2 class="section-title">Contactez-nous</h2>
-            <div class="card-container">
-                <div class="card" data-modal="contact-info">
-                    <div class="card-icon" aria-hidden="true">📞</div>
-                    <h3>Informations de Contact</h3>
-                    <p>Email: monofa29@gmail.com<br>Téléphone: 626230337<br>Bureaux: Guinée/Conackry - Tunisie/Tunis</p>
-                </div>
-                <div class="card" data-modal="discutons-projet">
-                    <div class="card-icon" aria-hidden="true">💬</div>
-                    <h3>Discutons de votre projet</h3>
-                    <p>Nous sommes à votre écoute pour transformer vos idées en solutions technologiques innovantes.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Back to top button -->
-    <button class="back-to-top" aria-label="Retour en haut de page">↑</button>
-
-    <!-- Footer professionnel -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>MONOFA</h3>
-                    <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1.5rem; line-height: 1.6;">
-                        Solutions technologiques innovantes pour propulser votre entreprise vers l'avenir. Expertise, innovation et excellence.
-                    </p>
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="LinkedIn" data-modal="linkedin">in</a>
-                        <a href="#" class="social-link" aria-label="Twitter" data-modal="twitter">𝕏</a>
-                        <a href="#" class="social-link" aria-label="Facebook" data-modal="facebook">f</a>
-                        <a href="#" class="social-link" aria-label="Instagram" data-modal="instagram">📷</a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Nos Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" data-modal="developpement-web">Développement Web</a></li>
-                        <li><a href="#" data-modal="applications-mobiles">Applications Mobiles</a></li>
-                        <li><a href="#" data-modal="cybersecurite">Cybersécurité</a></li>
-                        <li><a href="#" data-modal="intelligence-artificielle">Intelligence Artificielle</a></li>
-                        <li><a href="#" data-modal="machine-learning">Machine Learning</a></li>
-                        <li><a href="#" data-modal="services-impression">Services d'Impression</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Entreprise</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" data-modal="apropos">À propos de nous</a></li>
-                        <li><a href="#" data-modal="filiales">Nos filiales</a></li>
-                        <li><a href="#" data-modal="equipe">Équipe dirigeante</a></li>
-                        <li><a href="#" data-modal="carrieres">Carrières</a></li>
-                        <li><a href="#" data-modal="blog">Blog</a></li>
-                        <li><a href="#" data-modal="presse">Presse</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contact</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <span class="contact-icon">📍</span>
-                            <div>
-                                <p>Guinée/Conackry</p>
-                                <p>Tunisie/Tunis</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📞</span>
-                            <div>
-                                <p>626230337</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">✉️</span>
-                            <div>
-                                <p>monofa29@gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="newsletter">
-                        <p>Abonnez-vous à notre newsletter</p>
-                        <form class="newsletter-form" id="newsletterForm">
-                            <input type="email" class="newsletter-input" placeholder="Votre email" required>
-                            <button type="submit" class="newsletter-btn">S'abonner</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 MONOFA. Tous droits réservés.</p>
-                <div class="footer-legal">
-                    <a href="#" data-modal="confidentialite">Politique de confidentialité</a>
-                    <a href="#" data-modal="conditions">Conditions d'utilisation</a>
-                    <a href="#" data-modal="mentions">Mentions légales</a>
-                    <a href="#" data-modal="cookies">Cookies</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Données pour les modales - Structure prête pour backend
-        const modalData = {
-            // Services
-            'developpement-web': {
-                title: 'Développement Web',
-                content: `
-                    <p>Nous créons des solutions web sur mesure qui transforment votre vision en réalité digitale. Notre approche combine design innovant et technologies de pointe.</p>
-                    
-                    <h4>Nos solutions incluent :</h4>
-                    <ul class="modal-features">
-                        <li>Sites vitrines responsives et performants</li>
-                        <li>Plateformes e-commerce complètes</li>
-                        <li>Applications web progressives (PWA)</li>
-                        <li>Solutions CRM et ERP personnalisées</li>
-                        <li>Intégration API et systèmes tiers</li>
-                    </ul>
-                    
-                    <p><strong>Technologies utilisées :</strong> React, Vue.js, Angular, Node.js, Python, PHP</p>
-                    <p><strong>Délai moyen :</strong> 4-8 semaines selon complexité</p>
-                    <p><strong>Tarif :</strong> À partir de 2 500€</p>
-                    
-                    <button class="modal-contact-btn" data-contact="Développement Web">Demander un devis</button>
-                `
-            },
-            'applications-mobiles': {
-                title: 'Applications Mobiles',
-                content: `
-                    <p>Développons ensemble l'application mobile qui propulsera votre entreprise. Native, hybride ou cross-platform, nous choisissons la meilleure solution pour vos besoins.</p>
-                    
-                    <h4>Nos expertises mobiles :</h4>
-                    <ul class="modal-features">
-                        <li>Applications iOS natives (Swift)</li>
-                        <li>Applications Android natives (Kotlin)</li>
-                        <li>Applications cross-platform (React Native, Flutter)</li>
-                        <li>Applications hybrides (Ionic, Cordova)</li>
-                        <li>Applications PWA (Progressive Web Apps)</li>
-                    </ul>
-                    
-                    <p><strong>Store Optimization :</strong> Nous vous accompagnons pour la publication sur App Store et Google Play</p>
-                    <p><strong>Maintenance :</strong> Support continu et mises à jour régulières</p>
-                    <p><strong>Tarif :</strong> À partir de 3 000€</p>
-                    
-                    <button class="modal-contact-btn" data-contact="Applications Mobiles">Discuter de mon projet</button>
-                `
-            },
-            'cybersecurite': {
-                title: 'Solutions de Cybersécurité',
-                content: `
-                    <p>Protégez votre entreprise contre les cybermenaces avec nos solutions de sécurité sur mesure. Audit, prévention et protection 24/7.</p>
-                    
-                    <h4>Nos services de sécurité :</h4>
-                    <ul class="modal-features">
-                        <li>Audit de sécurité complet</li>
-                        <li>Tests d'intrusion et vulnérabilités</li>
-                        <li>Protection DDoS et firewall avancé</li>
-                        <li>Formation des équipes à la sécurité</li>
-                        <li>Surveillance 24/7 et réponse aux incidents</li>
-                    </ul>
-                    
-                    <p><strong>Certifications :</strong> ISO 27001, RGPD, SOC2</p>
-                    <p><strong>Intervention :</strong> Urgence 24h/24 disponible</p>
-                    <p><strong>Forfait mensuel :</strong> À partir de 300€/mois</p>
-                    
-                    <button class="modal-contact-btn" data-contact="Cybersécurité">Audit gratuit</button>
-                `
-            },
-            'intelligence-artificielle': {
-                title: 'Intelligence Artificielle',
-                content: `
-                    <p>L'IA au service de votre entreprise. Nous développons des solutions d'intelligence artificielle qui automatisent, optimisent et transforment vos processus.</p>
-                    
-                    <h4>Domaines d'application :</h4>
-                    <ul class="modal-features">
-                        <li>Chatbots et assistants virtuels intelligents</li>
-                        <li>Reconnaissance d'images et de documents</li>
-                        <li>Analyse prédictive et forecasting</li>
-                        <li>Recommandation personnalisée</li>
-                        <li>Automatisation de processus (RPA)</li>
-                    </ul>
-                    
-                    <p><strong>Technologies :</strong> TensorFlow, PyTorch, OpenAI, Computer Vision</p>
-                    <p><strong>Data Science :</strong> Analyse de vos données existantes</p>
-                    <p><strong>Investissement :</strong> À partir de 1 000€</p>
-                    
-                    <button class="modal-contact-btn" data-contact="Intelligence Artificielle">Étude de faisabilité</button>
-                `
-            },
-            
-            // Filiales
-            'saas-4kultur': {
-                title: 'Saas-4Kultur',
-                content: `
-                    <p><strong>Spécialiste des solutions logicielles pour le secteur culturel</strong></p>
-                    <p>Saas-4Kultur révolutionne la gestion culturelle avec des solutions cloud innovantes dédiées aux institutions culturelles, festivals et événements artistiques.</p>
-                    
-                    <h4>Produits phares :</h4>
-                    <ul class="modal-features">
-                        <li>Billetterie intelligente avec gestion de capacités</li>
-                        <li>Plateforme de programmation culturelle</li>
-                        <li>Gestion des artistes et des contrats</li>
-                        <li>Analytics et reporting culturel</li>
-                        <li>Application mobile dédiée aux événements</li>
-                    </ul>
-                    
-                    <p><strong>Chiffre clé :</strong> 150+ institutions culturelles nous font confiance</p>
-                    <p><strong>Équipe :</strong> 15 experts culture & tech</p>
-                    <p><strong>Contact :</strong> contact@saas4kultur.com</p>
-                    
-                    <button class="modal-contact-btn" data-contact="Saas-4Kultur">Visiter le site</button>
-                `
-            },
-            'commun-shot': {
-                title: 'Commun-Shot',
-                content: `
-                    <p><strong>Votre partenaire en production audiovisuelle</strong></p>
-                    <p>Commun-Shot accompagne les entreprises dans leur transformation digitale à travers des contenus audiovisuels percutants et professionnels.</p>
-                    
-                    <h4>Services proposés :</h4>
-                    <ul class="modal-features">
-                        <li>Production vidéo corporate et publicitaire</li>
-                        <li>Motion design et animation 2D/3D</li>
-                        <li>Photographie professionnelle</li>
-                        <li>Streaming d'événements en direct</li>
-                        <li>Formation aux outils audiovisuels</li>
-                    </ul>
-                    
-                    <p><strong>Réalisation notable :</strong> Campagne nationale pour le Ministère de la Culture</p>
-                    <p><strong>Équipement :</strong> Studios professionnels 4K</p>
-                    <p><strong>Contact :</strong> production@commun-shot.com</p>
-                    
-                    <button class="modal-contact-btn" data-contact="Commun-Shot">Voir notre portfolio</button>
-                `
-            },
-            
-            // Technologies
-            'react': {
-                title: 'React.js',
-                content: `
-                    <p><strong>Bibliothèque JavaScript pour interfaces utilisateur</strong></p>
-                    <p>Nous utilisons React pour créer des interfaces utilisateur interactives et performantes. Sa modularité et son écosystème riche nous permettent de développer rapidement des applications web modernes.</p>
-                    
-                    <h4>Nos expertises React :</h4>
-                    <ul class="modal-features">
-                        <li>React Hooks et Functional Components</li>
-                        <li>Next.js pour le SSR et SSG</li>
-                        <li>State Management (Redux, Context API)</li>
-                        <li>Testing (Jest, React Testing Library)</li>
-                        <li>Performance Optimization</li>
-                    </ul>
-                    
-                    <p><strong>Projets réalisés :</strong> 50+ applications React</p>
-                    <p><strong>Équipe :</strong> 8 développeurs React certifiés</p>
-                `
-            },
-            
-            // Contact général
-            'contact-info': {
-                title: 'Contactez MONOFA',
-                content: `
-                    <p>Nous sommes ravis de discuter de votre projet et de vous accompagner dans votre transformation digitale.</p>
-                    
-                    <h4>Coordonnées :</h4>
-                    <ul class="modal-features">
-                        <li><strong>Email :</strong> monofa29@gmail.com</li>
-                        <li><strong>Téléphone :</strong> 626230337</li>
-                        <li><strong>Bureaux :</strong> Guinée/Conackry - Tunisie/Tunis</li>
-                        <li><strong>Horaires :</strong> Lun - Ven: 9h - 18h</li>
-                    </ul>
-                    
-                    <h4>Prendre rendez-vous :</h4>
-                    <p>Disponible pour une visioconférence sous 24h. Discussion préliminaire sans engagement.</p>
-                    
-                    <button class="modal-contact-btn" data-contact="Rendez-vous">Prendre rendez-vous</button>
-                `
-            }
-        };
-
-        // Système de modales
-        const modal = document.getElementById('modal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalBody = document.getElementById('modalBody');
-        const modalClose = document.getElementById('modalClose');
-
-        function openModal(modalId) {
-            if (modalData[modalId]) {
-                modalTitle.textContent = modalData[modalId].title;
-                modalBody.innerHTML = modalData[modalId].content;
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            } else {
-                // Fallback pour les modales non encore implémentées
-                modalTitle.textContent = 'Information';
-                modalBody.innerHTML = `
-                    <p>Cette section est en cours de développement. Nous travaillons actuellement à enrichir le contenu de cette page.</p>
-                    <p>En attendant, n'hésitez pas à nous contacter directement pour plus d'informations.</p>
-                    <button class="modal-contact-btn" data-contact="Information">Nous contacter</button>
-                `;
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Gestion des clics sur les éléments avec data-modal
-        document.addEventListener('click', function(e) {
-            // Gestion des cartes cliquables
-            if (e.target.closest('[data-modal]')) {
-                const element = e.target.closest('[data-modal]');
-                const modalId = element.getAttribute('data-modal');
-                openModal(modalId);
-            }
-            
-            // Gestion des boutons de contact dans les modales
-            if (e.target.classList.contains('modal-contact-btn')) {
-                const service = e.target.getAttribute('data-contact');
-                closeModal();
-                setTimeout(() => {
-                    openModal('contact-info');
-                }, 300);
-            }
-        });
-
-        // Fermeture de la modale
-        modalClose.addEventListener('click', closeModal);
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        // Loading animation
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            setTimeout(() => {
-                loader.style.opacity = '0';
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                }, 500);
-            }, 800);
-        });
-
-        // Header scroll effect
-        const header = document.querySelector('.header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Navigation Hamburger functionality
-        const navHamburger = document.getElementById('navHamburger');
-        const navPanel = document.getElementById('navPanel');
-        
-        navHamburger.addEventListener('click', () => {
-            navHamburger.classList.toggle('active');
-            navPanel.classList.toggle('active');
-        });
-
-        // Close panel when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navHamburger.classList.remove('active');
-                navPanel.classList.remove('active');
-            });
-        });
-
-        // Anchor navigation functionality
-        const anchorDots = document.querySelectorAll('.anchor-dot');
-        const sections = document.querySelectorAll('section');
-        
-        // Update active anchor dot based on scroll position
-        function updateActiveAnchor() {
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                    currentSection = section.id;
-                }
-            });
-            
-            anchorDots.forEach(dot => {
-                dot.classList.remove('active');
-                if (dot.getAttribute('data-section') === currentSection) {
-                    dot.classList.add('active');
-                }
-            });
-        }
-        
-        // Scroll to section when clicking on anchor dot
-        anchorDots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const targetSection = dot.getAttribute('data-section');
-                const targetElement = document.getElementById(targetSection);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe cards for animation
-        document.querySelectorAll('.card, .filiale-card').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Back to top button
-        const backToTopBtn = document.querySelector('.back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-            
-            updateActiveAnchor();
-        });
-        
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Newsletter form handling
-        const newsletterForm = document.getElementById('newsletterForm');
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const emailInput = newsletterForm.querySelector('.newsletter-input');
-                const email = emailInput.value;
-                
-                // Simulation d'envoi - À remplacer par votre backend
-                console.log('Newsletter subscription:', email);
-                
-                // Show success message
-                alert('Merci pour votre inscription à notre newsletter! Vous recevrez bientôt nos actualités.');
-                emailInput.value = '';
-            });
-        }
-
-        // Bouton hero
-        document.getElementById('heroBtn').addEventListener('click', () => {
-            openModal('developpement-web');
-        });
-
-        // Initialize animations on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            // Animate hero content
-            const heroContent = document.querySelector('.hero-content');
-            heroContent.style.opacity = '0';
-            heroContent.style.transform = 'translateY(20px)';
-            
-            setTimeout(() => {
-                heroContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                heroContent.style.opacity = '1';
-                heroContent.style.transform = 'translateY(0)';
-            }, 300);
-            
-            // Initialize anchor navigation
-            updateActiveAnchor();
-        });
-
-        // Échap pour fermer la modale
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
-                closeModal();
-            }
-        });
-    </script>
-</body>
-</html>
-
-
-
-
-
+                <div class="curve
